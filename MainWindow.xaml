@@ -7,8 +7,127 @@
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
+        WindowStyle="None"
         Title="MainWindow" Height="1080" Width="1920">
     <Grid>
-        
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,1" EndPoint="1,0">
+                <GradientStop Color="#AA00FF" Offset="0.0" />
+                <GradientStop Color="#00E5FF" Offset="1.0" />
+            </LinearGradientBrush>
+        </Grid.Background>
+        <DockPanel HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,10,0">
+            <!-- Button - Minimize -->
+            <Border Name="bdrMinimize" Background="White" Height="40" Width="100" CornerRadius="10" BorderBrush="#BDBDBD" BorderThickness="3" Margin="0,0,10,0" MouseLeftButtonUp="bdrMinimize_MouseLeftButtonUp" MouseEnter="bdrMinimize_MouseEnter" MouseLeave="bdrMinimize_MouseLeave">
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect Color="White" ShadowDepth="0" Softness="5"/>
+                </Border.BitmapEffect>
+                <Path Opacity="1" Stroke="#757575" StrokeThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                    <Path.Data>
+                        <PathGeometry>
+                            <PathGeometry.Figures>
+                                <PathFigureCollection>
+                                    <PathFigure StartPoint="15,0">
+                                        <PathFigure.Segments>
+                                            <PathSegmentCollection>
+                                                <QuadraticBezierSegment Point1="0,0" Point2="0,0" />
+                                            </PathSegmentCollection>
+                                        </PathFigure.Segments>
+                                    </PathFigure>
+                                </PathFigureCollection>
+                            </PathGeometry.Figures>
+                        </PathGeometry>
+                    </Path.Data>
+                </Path>
+            </Border>
+            
+            <!-- Button - Close -->
+            <Border Name="bdrClose" Background="White" Height="40" Width="100" CornerRadius="10" BorderBrush="#BDBDBD" BorderThickness="3" MouseLeftButtonUp="bdrClose_MouseLeftButtonUp" MouseEnter="bdrClose_MouseEnter" MouseLeave="bdrClose_MouseLeave">
+                <Border.BitmapEffect>
+                    <DropShadowBitmapEffect Color="White" ShadowDepth="0" Softness="5"/>
+                </Border.BitmapEffect>
+                <Grid>
+                    <!-- LeftTop to RightBottom -->
+                    <Path Opacity="1" Stroke="#C62828" StrokeThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathGeometry.Figures>
+                                    <PathFigureCollection>
+                                        <PathFigure StartPoint="15,15">
+                                            <PathFigure.Segments>
+                                                <PathSegmentCollection>
+                                                    <QuadraticBezierSegment Point1="0,0" Point2="0,0" />
+                                                </PathSegmentCollection>
+                                            </PathFigure.Segments>
+                                        </PathFigure>
+                                    </PathFigureCollection>
+                                </PathGeometry.Figures>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+
+                    <!-- LeftBottom to RightTop -->
+                    <Path Opacity="1" Stroke="#C62828" StrokeThickness="3" HorizontalAlignment="Center" VerticalAlignment="Center">
+                        <Path.Data>
+                            <PathGeometry>
+                                <PathGeometry.Figures>
+                                    <PathFigureCollection>
+                                        <PathFigure StartPoint="15,0">
+                                            <PathFigure.Segments>
+                                                <PathSegmentCollection>
+                                                    <QuadraticBezierSegment Point1="0,15" Point2="0,15" />
+                                                </PathSegmentCollection>
+                                            </PathFigure.Segments>
+                                        </PathFigure>
+                                    </PathFigureCollection>
+                                </PathGeometry.Figures>
+                            </PathGeometry>
+                        </Path.Data>
+                    </Path>
+                </Grid>
+            </Border>
+        </DockPanel>
+        <Border Height="300" Width="600" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,250,0,0" Background="White" CornerRadius="10">
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="White" ShadowDepth="0" Softness="5"/>
+            </Border.BitmapEffect>
+            <StackPanel>
+                <Label Content="Login" FontFamily="Roboto" FontSize="35" Height="75" Width="550" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+                
+                <!-- Input - Username -->
+                <Border CornerRadius="5" Width="550" Height="50" BorderThickness="1" BorderBrush="Gray" Background="White">
+                    <Border.BitmapEffect>
+                        <DropShadowBitmapEffect Color="Black" ShadowDepth="0" Softness="0.5" Opacity="0.5"/>
+                    </Border.BitmapEffect>
+                    <TextBox Name="tbxUsername" Text="Username" FontFamily="Roboto" FontSize="20" HorizontalAlignment="Right" VerticalContentAlignment="Center" Background="White" Height="40" Width="535" BorderThickness="0" Opacity="0.25" Focusable="True"/>
+                </Border>
+                
+                <!-- Input - Password -->
+                <Border CornerRadius="5" Width="550" Height="50" BorderThickness="1" BorderBrush="Gray" Background="White" Margin="0,25,0,0">
+                    <Border.BitmapEffect>
+                        <DropShadowBitmapEffect Color="Black" ShadowDepth="0" Softness="0.5" Opacity="0.5"/>
+                    </Border.BitmapEffect>
+                    <TextBox Name="tbxPassword" Text="Password" FontFamily="Roboto" FontSize="20" HorizontalAlignment="Right" VerticalContentAlignment="Center" Background="White" Height="40" Width="535" BorderThickness="0" Opacity="0.25"/>
+                </Border>
+
+                <DockPanel Width="550" Margin="0,25,0,0">
+                    <!-- Button - Register -->
+                    <Border Name="bdrRegister" CornerRadius="5" Width="200" Height="50" BorderThickness="1" BorderBrush="Gray" Background="White">
+                        <Border.BitmapEffect>
+                            <DropShadowBitmapEffect Color="Black" ShadowDepth="0" Softness="0.5" Opacity="0.5"/>
+                        </Border.BitmapEffect>
+                        <Label Background="White" Content="Register" FontFamily="Roboto" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" BorderThickness="0"/>
+                    </Border>
+                    
+                    <!-- Button - Login -->
+                    <Border Name="bdrLogin" CornerRadius="5" Width="200" Height="50" BorderThickness="1" BorderBrush="Gray" Background="White" HorizontalAlignment="Right">
+                        <Border.BitmapEffect>
+                            <DropShadowBitmapEffect Color="Black" ShadowDepth="0" Softness="0.5" Opacity="0.5"/>
+                        </Border.BitmapEffect>
+                        <Label Background="White" Content="Login" FontFamily="Roboto" FontSize="20" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Height="40" BorderThickness="0"/>
+                    </Border>
+                </DockPanel>
+            </StackPanel>
+        </Border>
     </Grid>
 </Window>
